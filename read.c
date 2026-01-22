@@ -1,27 +1,17 @@
 #include <stdio.h> 
-#define ARRAY_SIZE 500; 
+#include <stdlib.h>
+#define ARRAY_SIZE 500;    
 
 
-char *readFile(char* fileName, int bytes)
+char *readFile(char* fileName, char contents[], int bytes)
 {
+    int file = open(fileName, "r"); //open a file with read
 
-    char contents[bytes]; // define a space for the file's contents, with custom bytes
+    ssize_t bytes_read = read(file, contents, sizeof(contents)-1); // use read system call to read the file
 
-    char ch; 
+    contents[bytes_read] = '\0'; // null terminate the contents
 
-    int idx = 0; // initialize index to iterate through contents
+    close(file); // close file for memory leaking related issues
 
-    FILE *fptr; // set up file reading
-
-    fptr = fopen(fileName, "r"); // open the file in read mode
-
-    while (ch=getc(fptr) != EOF)
-    {
-        contents[idx] = ch; // write to contents
-
-        idx++; // increment index
-    }
-
-    return contents;
-
+    return 0;
 }
