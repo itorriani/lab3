@@ -1,22 +1,25 @@
 #include <stdio.h>;
 
-char *fread(char* fileName, int bytes)
+int freadFile(char* fileName, char contents[], int bytes)
 {
-    FILE *file; // set up file
 
-    int contents[bytes]; //set up space with the designated amount
+    FILE* file = fopen(fileName, "r"); //open file with fopen
 
-    file = fopen(fileName, "rb"); // open the file in read
+    size_t n; // for file reading until eof purposes
 
-    fread(contents, sizeof(int), bytes, file);
-
-    for (int i = 0; i < 5; i++)
+    if (file == NULL) //check if error with file argument
     {
-        //do something
-        
+        perror("Error opening file"); // state the error
     }
 
+    while((n=fread(contents, 1, bytes, file)) > 0) { }; //read until the end of file
 
+    fclose(file); // close the file for memory related issues
 
+    return 0; 
 
 }
+
+
+
+
