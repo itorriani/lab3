@@ -2,10 +2,9 @@
 #include <stdlib.h>
 #include <fcntl.h>   
 #include <unistd.h>  
-#define ARRAY_SIZE 500;    
 
 
-char *readFile(char* fileName, char contents[], int bytes)
+int main(char* fileName, char contents[], int bytes)
 {
     int file = open(fileName, O_RDONLY); //open a file with read
 
