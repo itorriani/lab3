@@ -14,6 +14,11 @@ int main(int argc, char *argv[1])
 
     int file = open(argv[1], O_RDONLY); //open a file with read
 
+    if (file < 0)
+    {
+        printf("%s", "file didn't open");
+    }
+
     ssize_t bytes_read;
 
     while ((bytes_read=read(file, contents, CONTENT_SIZE)) > 0) { }; // use read functionality 
