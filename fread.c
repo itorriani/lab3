@@ -1,9 +1,12 @@
 #include <stdio.h>
+#ifndef CONTENT_SIZE
 #define CONTENT_SIZE 500
+#endif
+
 
 int main(int argc, char *argv[1])
 {
-    char* contents[CONTENT_SIZE];
+    char contents[CONTENT_SIZE];
 
     FILE* file = fopen(argv[1], "r"); //open file with fopen
 

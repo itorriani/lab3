@@ -2,7 +2,9 @@
 #include <stdlib.h>
 #include <fcntl.h>   
 #include <unistd.h>  
+#ifndef CONTENT_SIZE
 #define CONTENT_SIZE 500
+#endif
 
 
 int main(int argc, char *argv[1])
