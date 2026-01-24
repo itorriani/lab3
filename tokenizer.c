@@ -15,9 +15,9 @@ int main(int argc, char *argv[1]) // fileName,
 
         while (linePtr != NULL)
         {
-            printf("%s \n", *linePtr); // print each word in the line
+            printf("%s \n", linePtr); // print each word in the line
 
-            strtok(NULL, " \t\r\n\v\f");
+            linePtr = strtok(NULL, " \t\r\n\v\f");
 
         }
 
