@@ -2,15 +2,19 @@
 #include <stdlib.h>
 #include <fcntl.h>   
 #include <unistd.h>  
+#define CONTENT_SIZE 500
 
 
-int main(char* fileName, char contents[], int bytes)
+int main(int argc, char *argv[1])
 {
-    int file = open(fileName, O_RDONLY); //open a file with read
+
+    char contents[CONTENT_SIZE];
+
+    int file = open(argv[1], O_RDONLY); //open a file with read
 
     ssize_t bytes_read;
 
-    while ((bytes_read=read(file, contents, bytes)) > 0) { }; // use read functionality 
+    while ((bytes_read=read(file, contents, CONTENT_SIZE)) > 0) { }; // use read functionality 
 
     contents[bytes_read] = '\0'; // null terminate the contents
 
