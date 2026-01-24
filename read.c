@@ -10,7 +10,9 @@
 int main(int argc, char *argv[1])
 {
 
-    char contents[CONTENT_SIZE];
+    int cs = atoi(argv[2]);
+
+    char contents[cs]; // allow customizability of bytes read
 
     int file = open(argv[1], O_RDONLY); //open a file with read
 
@@ -21,7 +23,7 @@ int main(int argc, char *argv[1])
 
     ssize_t bytes_read;
 
-    while ((bytes_read=read(file, contents, CONTENT_SIZE)) > 0) { }; // use read functionality 
+    while ((bytes_read=read(file, contents, cs)) > 0) { }; // use read functionality 
 
     contents[bytes_read] = '\0'; // null terminate the contents
 
